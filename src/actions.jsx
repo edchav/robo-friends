@@ -12,7 +12,7 @@ export const setSearchField = (text) => ({
 
 export const requestRobots = () => (dispatch) =>  {
     dispatch({ type: REQUEST_ROBOTS_PENDING });
-    fetch('https://jsonplaceholder.typicod.com/users')
+    fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
 
         // 2 new lines to dispatch the success or failure actions using payload 
