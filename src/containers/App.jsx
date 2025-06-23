@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import './App.css';
+import PWABadge from '../containers/PWABadge';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { setSearchField, requestRobots } from '../actions';
@@ -25,6 +27,15 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
+    static propTypes = {
+        searchField: PropTypes.string.isRequired,
+        robots: PropTypes.array.isRequired,
+        isPending: PropTypes.bool.isRequired,
+        onSearchChange: PropTypes.func.isRequired,
+        onRequestRobots: PropTypes.func.isRequired,
+        error: PropTypes.object
+    };
+
     // using redux, we don't need to manage state in this component
     // constructor() {
     //     super()
@@ -64,7 +75,9 @@ class App extends Component {
             <Scroll>
                 <CardList robots={ filteredRobots } />  
             </Scroll>
+            <PWABadge />
         </div>
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
