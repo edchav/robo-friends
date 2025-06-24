@@ -38,5 +38,18 @@
       "sizes": "180x180",
       "type":  "image/png"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "LargeTile.scale-400.png",
+      "sizes": "1240x1240",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "LargeTile.scale-125.png",
+      "sizes": "388x388",
+      "type": "image/png"
+    }
   ]
 }
