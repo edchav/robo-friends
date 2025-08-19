@@ -1,24 +1,24 @@
-	version: 2.1
-	jobs:
-	  Bobby:
-	    docker:
-	      - image: alpine:3.15
-	    steps:
-	      - run:
-	          name: The First Step
-	          command: |
-	            echo 'Hello World!'
-    sally:
-	    docker:
-	      - image: alpine:3.15
-	    steps:
-	      - run:
-	          name: The First Step
-	          command: |
-	            echo 'Double Trouble'
-    workflows:
-      version: 2.1
-      bobby_sally:
-        jobs:
-          - bobby
-          - sally
+version: 2.1
+jobs:
+  Bobby:
+    docker:
+      - image: alpine:3.15
+    steps:
+      - run:
+          name: The First Step
+          command: |
+            echo 'Hello World!'
+  sally:
+    docker:
+      - image: alpine:3.15
+    steps:
+      - run:
+          name: The First Step
+          command: |
+            echo 'Double Trouble'
+workflows:
+  version: 2.1
+  bobby_sally:
+    jobs:
+      - bobby
+      - sally
