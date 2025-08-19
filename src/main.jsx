@@ -1,27 +1,29 @@
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import 'tachyons';
-import { Provider  } from 'react-redux';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { searchRobotsReducer, requestRobotsReducer } from './reducers';
-import { StrictMode } from 'react';
-import App from './containers/App';
-import { createLogger } from 'redux-logger';
+import React from 'react';
+// import ReactDOM from 'react-dom'; The new way to import createRoot:
+import { createRoot } from "react-dom/client";
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import { thunk } from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import 'tachyons';
 
-const logger = createLogger();
+import App from './containers/App';
+import registerServiceWorker from './registerServiceWorker';
+import { requestRobots, searchRobots } from './reducers'
 
-const rootReducer = combineReducers({
-  searchRobotsReducer,
-  requestRobotsReducer
-})
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+import './index.css';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Provider store ={store}>
-      <App />
-    </Provider>
-  </StrictMode>
-)
- 
+const logger = createLogger()
+
+const rootReducers = combineReducers({requestRobots, searchRobots})
+const store = createStore(rootReducers, applyMiddleware(thunk, logger))
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <Provider store={store}>
+    <App/>
+  </Provider>
+);
+
+// registerServiceWorker();
+
