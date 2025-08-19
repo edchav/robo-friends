@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  Bobby:
+  bobby:
     docker:
       - image: alpine:3.15
     steps:
