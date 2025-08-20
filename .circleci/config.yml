@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: cimg/node:17.2
     steps:
+      - checkout
       - run:
           name: The First Step
           command: |
@@ -20,6 +21,7 @@ jobs:
     docker:
       - image: cimg/node:17.2
     steps:
+      - checkout
       - run:
           command: |
             echo "testing stuff"
