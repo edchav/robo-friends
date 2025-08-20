@@ -10,7 +10,11 @@ export default defineConfig({
     setupFiles: ['./src/setupTests.js'],
     globals: true,
   },
-  plugins: [react(), VitePWA({
+  plugins: [
+    react({
+      include: ["**/*.jsx", "**/*.js"]
+    }), 
+    VitePWA({
     registerType: 'prompt',
     injectRegister: false,
 
