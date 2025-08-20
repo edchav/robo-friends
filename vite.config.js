@@ -5,6 +5,11 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/robo-friends/',
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./src/setupTests.js'],
+    globals: true,
+  },
   plugins: [react(), VitePWA({
     registerType: 'prompt',
     injectRegister: false,
