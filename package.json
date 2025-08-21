@@ -13,9 +13,15 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "precommit": "pretty-quick --staged",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "pretty-quick": "^4.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
@@ -40,7 +46,10 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "gh-pages": "^6.3.0",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
     "jsdom": "^26.1.0",
+    "lint-staged": "^16.1.5",
+    "prettier": "3.6.2",
     "redux-mock-store": "^1.5.5",
     "vite": "^6.3.1",
     "vite-plugin-pwa": "^0.21.1",
